@@ -1,0 +1,19 @@
+databaseChangeLog:
+  - changeSet:
+      author: nikola
+      id: 1
+      changes:
+        - createTable:
+            tableName: account
+            columns:
+              - column:
+                  name: user_id
+                  type: varchar(40)
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+              - column:
+                  name: name
+                  type: varchar(255)
+                  constraints:
+                    nullable: false

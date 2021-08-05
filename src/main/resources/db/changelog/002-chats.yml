@@ -1,0 +1,55 @@
+databaseChangeLog:
+  - changeSet:
+      author: nikola
+      id: 1
+      changes:
+        - createTable:
+            tableName: chat
+            columns:
+              - column:
+                  name: chat_id
+                  type: varchar(40)
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+              - column:
+                  name: from_user_id
+                  type: varchar(40)
+                  constraints:
+                    nullable: false
+                    foreignKeyName: fk_chat_user1
+                    references: account(user_id)
+                    onDelete: CASCADE
+              - column:
+                  name: to_user_id
+                  type: varchar(40)
+                  constraints:
+                    nullable: false
+                    foreignKeyName: fk_chat_user2
+                    references: account(user_id)
+                    onDelete: CASCADE
+        - createTable:
+            tableName: test_table
+            columns:
+              - column:
+                  name: id
+                  type: varchar(40)
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+              - column:
+                  name: chat_id
+                  type: varchar(40)
+                  constraints:
+                    nullable: true
+                    foreignKeyName: fk_test
+                    references: chat(chat_id)
+                    onDelete: CASCADE
+              - column:
+                  name: from_user_id
+                  type: varchar(40)
+                  constraints:
+                    nullable: false
+                    foreignKeyName: fk_user1
+                    references: account(user_id)
+                    onDelete: CASCADE

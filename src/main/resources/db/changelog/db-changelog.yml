@@ -1,0 +1,7 @@
+databaseChangeLog:
+  - include:
+      relativeToChangelogFile: true
+      file: 001-users.yml
+  - include:
+      relativeToChangelogFile: true
+      file: 002-chats.yml
